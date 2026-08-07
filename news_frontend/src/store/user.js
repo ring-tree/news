@@ -114,8 +114,8 @@ export const useUserStore = defineStore('user', {
         // 发送获取用户信息请求
         const response = await axios.get(`${apiConfig.baseURL}/api/user/info`, {
           headers: {
-            // Authorization: `Bearer ${this.token}`
-            Authorization: this.token
+            Authorization: `Bearer ${this.token}`
+            // Authorization: this.token
           }
         });
         
@@ -160,7 +160,8 @@ export const useUserStore = defineStore('user', {
           { bio },
           {
             headers: {
-              Authorization: this.token
+              Authorization: `Bearer ${this.token}`
+              // Authorization: this.token
             }
           }
         );
@@ -208,7 +209,8 @@ export const useUserStore = defineStore('user', {
           },
           {
             headers: {
-              Authorization: this.token
+              Authorization: `Bearer ${this.token}`
+              // Authorization: this.token
             }
           }
         );

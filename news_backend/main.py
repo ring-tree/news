@@ -3,6 +3,10 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
+# 注册异常处理器
+from utils.exception_headlers import register_exception_handlers
+register_exception_handlers(app)
+
 # 跨域资源共享
 from fastapi.middleware.cors import CORSMiddleware
 # 允许的源列表
@@ -25,8 +29,9 @@ async def root():
 
 
 # 挂载/注册路由
-from routers import news
+from routers import news, users
 app.include_router(news.router)
+app.include_router(users.router)
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="localhost", port=8000, reload=True)
