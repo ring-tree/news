@@ -27,7 +27,7 @@ export const useHistoryStore = defineStore('history', {
           { newsId },
           { 
             headers: { 
-              Authorization: userStore.token 
+              Authorization: `Bearer ${userStore.token}` 
             } 
           }
         );
@@ -35,7 +35,7 @@ export const useHistoryStore = defineStore('history', {
         if (response.data.code === 200) {
           return { success: true, data: response.data.data };
         } else {
-          return { success: false, message: response.data.message || '添加浏览历史失败' };
+          return { success: false, message: response.data.message || '添加浏览历史失败' };  
         }
       } catch (error) {
         console.error('添加浏览历史请求失败:', error);
@@ -89,7 +89,7 @@ export const useHistoryStore = defineStore('history', {
         console.log('清空浏览历史API：开始请求');
         const response = await axios.delete(`${apiConfig.baseURL}/api/history/clear`, { 
           headers: { 
-            Authorization: userStore.token 
+            Authorization: `Bearer ${userStore.token}` 
           } 
         });
         
@@ -129,7 +129,7 @@ export const useHistoryStore = defineStore('history', {
         console.log('删除浏览历史API：开始请求', id);
         const response = await axios.delete(`${apiConfig.baseURL}/api/history/delete/${id}`, { 
           headers: { 
-            Authorization: userStore.token 
+            Authorization: `Bearer ${userStore.token}` 
           } 
         });
         
@@ -175,7 +175,7 @@ export const useHistoryStore = defineStore('history', {
         console.log('获取浏览历史API：开始请求');
         const response = await axios.get(`${apiConfig.baseURL}/api/history/list`, { 
           headers: { 
-            Authorization: userStore.token 
+            Authorization: `Bearer ${userStore.token}` 
           } 
         });
         
