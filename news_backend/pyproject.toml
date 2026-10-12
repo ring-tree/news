@@ -6,8 +6,8 @@ readme = "README.md"
 requires-python = ">=3.13.2"
 dependencies = [
     "aiomysql>=0.3.2",
+    "bcrypt>=5.0.0",
     "fastapi[standard]>=0.139.0",
-    "passlib[bcrypt]==1.7.4",
     "sqlalchemy[asyncio]>=2.0.51",
 ]
 

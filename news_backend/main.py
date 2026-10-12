@@ -29,9 +29,10 @@ async def root():
 
 
 # 挂载/注册路由
-from routers import news, users
+from routers import news, users, favorite
 app.include_router(news.router)
 app.include_router(users.router)
+app.include_router(favorite.router)
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="localhost", port=8000, reload=True)

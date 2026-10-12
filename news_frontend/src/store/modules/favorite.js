@@ -34,7 +34,7 @@ export const useFavoriteStore = defineStore('favorite', {
           this.loading = true;
           const response = await axios.get(`${apiConfig.baseURL}/api/favorite/check`, { 
             headers: { 
-              Authorization: userStore.token 
+              Authorization: `Bearer ${userStore.token}` 
             },
             params: { newsId }
           });
@@ -76,7 +76,7 @@ export const useFavoriteStore = defineStore('favorite', {
           { newsId },
           { 
             headers: { 
-              Authorization: userStore.token 
+              Authorization: `Bearer ${userStore.token}`
             } 
           }
         );
@@ -107,7 +107,7 @@ export const useFavoriteStore = defineStore('favorite', {
         this.loading = true;
         const response = await axios.delete(`${apiConfig.baseURL}/api/favorite/remove?newsId=${newsId}`, { 
           headers: { 
-            Authorization: userStore.token 
+            Authorization: `Bearer ${userStore.token}`
           }
         });
         
@@ -194,7 +194,7 @@ export const useFavoriteStore = defineStore('favorite', {
         this.loading = true;
         const response = await axios.delete(`${apiConfig.baseURL}/api/favorite/clear`, { 
           headers: { 
-            Authorization: userStore.token 
+            Authorization: `Bearer ${userStore.token}`
           }
         });
         
@@ -246,7 +246,7 @@ export const useFavoriteStore = defineStore('favorite', {
         console.log('准备发送API请求', `${apiConfig.baseURL}/api/favorite/list`);
         const response = await axios.get(`${apiConfig.baseURL}/api/favorite/list`, { 
           headers: { 
-            Authorization: userStore.token 
+            Authorization: `Bearer ${userStore.token}`
           },
           params: { page, pageSize }
         });
